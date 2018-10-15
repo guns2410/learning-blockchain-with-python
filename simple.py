@@ -1,0 +1,18 @@
+import hashlib as hasher
+import datetime as date
+from block import Block 
+from chain import blockchain, add_block, previous_block 
+
+# How many blocks do we need for this chain
+# after the genesis block
+
+num_of_blocks_to_add = 20
+
+# Add blocks to the chain
+for i in range(0, num_of_blocks_to_add):
+    block_to_add = add_block(previous_block)
+    previous_block = block_to_add
+
+    # Tell the world
+    print ("Block #{} has been added to blockchain!".format(block_to_add.index))
+    print ("Hash: {}\n".format(block_to_add.hash))
