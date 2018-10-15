@@ -13,6 +13,6 @@ for i in range(0, num_of_blocks_to_add):
     block_to_add = add_block(previous_block)
     previous_block = block_to_add
 
-    # Tell the world
+    # Print to console the newly created block
     print ("Block #{} has been added to blockchain!".format(block_to_add.index))
     print ("Hash: {}\n".format(block_to_add.hash))
