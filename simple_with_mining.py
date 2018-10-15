@@ -1,6 +1,5 @@
 from flask import Flask, request
-from src.block import Block
-from src.chain import blockchain, add_block, previous_block, generate_proof_of_work 
+from src.chain import blockchain, add_block, generate_proof_of_work
 import json
 
 
@@ -16,7 +15,8 @@ def proff_of_work(last_proof):
         incrementor += 1
 
     # return the generated proof of work
-    return incrementor 
+    return incrementor
+
 
 # Initiate Flask
 node = Flask(__name__)
@@ -26,6 +26,8 @@ node_transactions = []
 
 # Creates a new transaction of transferring tokens from
 # one user to the another
+
+
 @node.route('/txion', methods=['POST'])
 def transaction():
     if request.method == 'POST':
@@ -42,14 +44,17 @@ def transaction():
 
         return 'Transaction submitted successfully!\n'
 
+
 # A sample miner's wallet address
 miner_address = 'abcd'
 
 # A get request URL to mine tokens
+
+
 @node.route('/mine', methods=['GET'])
 def mine():
     # Get the latest block in the chain and get it's proof-of-work value
-    last_block = blockchain[len(blockchain) -1]
+    last_block = blockchain[len(blockchain) - 1]
     last_proof = last_block.data['proof-of-work']
 
     # Calculate the current proof of work
@@ -70,7 +75,7 @@ def mine():
 
     # Empty the transaction list once the transaction is mined
     node_transactions[:] = []
-    
+
     # Add the block to the chain
     new_block = add_block(new_block_data)
 
@@ -101,6 +106,7 @@ def blocks():
 
     # convert the dictionay to json object and return the output
     return json.dumps(chain_to_send)
+
 
 # Run the server, defaults to port 5000
 node.run()
