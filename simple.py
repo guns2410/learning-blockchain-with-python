@@ -1,7 +1,7 @@
 import hashlib as hasher
 import datetime as date
-from block import Block 
-from chain import blockchain, add_block, previous_block 
+from src.block import Block 
+from src.chain import blockchain, add_block, previous_block 
 
 # How many blocks do we need for this chain
 # after the genesis block

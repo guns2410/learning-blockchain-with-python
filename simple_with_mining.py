@@ -1,6 +1,6 @@
 from flask import Flask, request
-from block import Block
-from chain import blockchain, add_block, previous_block, generate_proof_of_work 
+from src.block import Block
+from src.chain import blockchain, add_block, previous_block, generate_proof_of_work 
 import json
 
 

@@ -1,4 +1,4 @@
-from block import Block
+from src.block import Block
 import datetime as date
 
 def generate_genesis_block():
