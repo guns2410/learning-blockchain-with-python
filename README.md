@@ -22,6 +22,11 @@ python simple_with_mining.py
 This will start the python flask server on port 5000
 
 ### Mine a block
+
+Mining a block using proof-of-work where the proof is
+
+> a number which is both divisible by 9 and divisible by the last block's proof
+
 ```
 [GET] http://localhost:5000/mine
 ```
